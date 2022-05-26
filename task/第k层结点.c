@@ -1,16 +1,16 @@
 #pragma warning(disable : 4996)
 #include <stdio.h>
 #include <stdlib.h>
-/*¶ş²æÊ÷Á´½Ó´æ´¢µÄÍ·ÎÄ¼ş*/
-typedef char datatype;         /*½áµãÊôĞÔÖµµÄÀàĞÍ*/
-typedef struct node{           /*¶ş²æÊ÷½áµãµÄÀàĞÍ*/
+/*äºŒå‰æ ‘é“¾æ¥å­˜å‚¨çš„å¤´æ–‡ä»¶*/
+typedef char datatype;         /*ç»“ç‚¹å±æ€§å€¼çš„ç±»å‹*/
+typedef struct node{           /*äºŒå‰æ ‘ç»“ç‚¹çš„ç±»å‹*/
   datatype  data;
   struct node  *lchild,*rchild;
 }bintnode,*bintree;
 
 
 bintree createbintree()
-{/*°´ÕÕÇ°Ğò±éÀúµÄË³Ğò½¨Á¢Ò»¿Ã¸ø¶¨µÄ¶ş²æÊ÷*/
+{/*æŒ‰ç…§å‰åºéå†çš„é¡ºåºå»ºç«‹ä¸€æ£µç»™å®šçš„äºŒå‰æ ‘*/
  char ch;
  bintree t;
  if ((ch=getchar())=='#')
@@ -26,7 +26,7 @@ bintree createbintree()
 
 
 void preorder(bintree t)
-  { /*Ç°Ğò±éÀú¶ş²æÊ÷µÄµİ¹éËã·¨*/
+  { /*å‰åºéå†äºŒå‰æ ‘çš„é€’å½’ç®—æ³•*/
     if (t) { 
 			 printf("%c",t->data);
 			 preorder(t->lchild);
@@ -35,8 +35,8 @@ void preorder(bintree t)
      }
 
 
-/*ÎÒ²»ÔÙ¸ø³öº¯ÊıÔ­ĞÍ£¬×Ô¼ºÔÚ´Ë´¦Íê³Éº¯Êı£ºÇóµÚk²ãµÄ½áµã¸öÊı¡£²ÉÓÃµİ¹éº¯Êı»ò·Çµİ¹éº¯Êı¶¼ĞĞ*/
-int count[100];//ÓÃÀ´´æ´¢Ã¿Ò»²ãµÄ½áµã¸öÊı
+/*æˆ‘ä¸å†ç»™å‡ºå‡½æ•°åŸå‹ï¼Œè‡ªå·±åœ¨æ­¤å¤„å®Œæˆå‡½æ•°ï¼šæ±‚ç¬¬kå±‚çš„ç»“ç‚¹ä¸ªæ•°ã€‚é‡‡ç”¨é€’å½’å‡½æ•°æˆ–éé€’å½’å‡½æ•°éƒ½è¡Œ*/
+int count[100];//ç”¨æ¥å­˜å‚¨æ¯ä¸€å±‚çš„ç»“ç‚¹ä¸ªæ•°
 void Width(bintree T, int k)
 {
 	if (T == NULL)  return;
@@ -48,14 +48,14 @@ void Width(bintree T, int k)
 void main()
 {bintree root;
     
- /*½¨¶ş²æÊ÷*/   
- printf("ÇëÊäÈë¶ş²æÊ÷µÄ½áµãÖµ£º");  root=createbintree();
- printf("¶ş²æÊ÷µÄÇ°Ğò±éÀú½á¹ûÎª£º");  preorder(root);
+ /*å»ºäºŒå‰æ ‘*/   
+ printf("è¯·è¾“å…¥äºŒå‰æ ‘çš„ç»“ç‚¹å€¼ï¼š");  root=createbintree();
+ printf("äºŒå‰æ ‘çš„å‰åºéå†ç»“æœä¸ºï¼š");  preorder(root);
      
- /*ÔÚ´Ë´¦Íê³É¶Ô¸Ãº¯ÊıµÄµ÷ÓÃ£¬²¢½øĞĞ²âÊÔ*/
+ /*åœ¨æ­¤å¤„å®Œæˆå¯¹è¯¥å‡½æ•°çš„è°ƒç”¨ï¼Œå¹¶è¿›è¡Œæµ‹è¯•*/
  Width(root, 1);
  int k;
- printf("\nÄãÏëÕÒµÚ¼¸²ã£º");
+ printf("\nä½ æƒ³æ‰¾ç¬¬å‡ å±‚ï¼š");
  scanf("%d", &k);
- printf("µÚ%d²ãÓĞ%d¸ö½Úµã",k,count[k]);
+ printf("ç¬¬%då±‚æœ‰%dä¸ªèŠ‚ç‚¹",k,count[k]);
 }
