@@ -1,8 +1,8 @@
 #include <stdio.h>
 #include <stdlib.h>
-/*¶ş²æÊ÷Á´½Ó´æ´¢µÄÍ·ÎÄ¼ş*/
-typedef char datatype;         /*½áµãÊôĞÔÖµµÄÀàĞÍ*/
-typedef struct node{           /*¶ş²æÊ÷½áµãµÄÀàĞÍ*/
+/*äºŒå‰æ ‘é“¾æ¥å­˜å‚¨çš„å¤´æ–‡ä»¶*/
+typedef char datatype;         /*ç»“ç‚¹å±æ€§å€¼çš„ç±»å‹*/
+typedef struct node{           /*äºŒå‰æ ‘ç»“ç‚¹çš„ç±»å‹*/
   datatype  data;
   struct node  *lchild,*rchild;
 }bintnode,*bintree;
@@ -17,7 +17,7 @@ nodelink* head;
 
 //ABD##E##CF###
 bintree createbintree()       
-{/*°´ÕÕÇ°Ğò±éÀúµÄË³Ğò½¨Á¢Ò»¿Ã¸ø¶¨µÄ¶ş²æÊ÷*/ 
+{/*æŒ‰ç…§å‰åºéå†çš„é¡ºåºå»ºç«‹ä¸€æ£µç»™å®šçš„äºŒå‰æ ‘*/ 
  char ch;  bintree t;
  if ((ch=getchar())=='#')
       t=NULL;
@@ -34,13 +34,13 @@ void reverse(nodelink * head,datatype data)
 {
     nodelink* p = (nodelink*)malloc(sizeof(nodelink));
     p = head->next;
-    printf("\n½Úµã%cµÄ·´ÏòÂ·¾¶Îª£º", data);
-    while (p)//ÕÒµ½¸Ã½Úµã
+    printf("\nèŠ‚ç‚¹%cçš„åå‘è·¯å¾„ä¸ºï¼š", data);
+    while (p)//æ‰¾åˆ°è¯¥èŠ‚ç‚¹
     {if (p->data == data)
         break;  
         p = p->next;
     }
-    while (p)//¶ÔÁ´±íÖĞ¸Ã½ÚµãºóµÄÊı¾İ½øĞĞÊä³ö
+    while (p)//å¯¹é“¾è¡¨ä¸­è¯¥èŠ‚ç‚¹åçš„æ•°æ®è¿›è¡Œè¾“å‡º
     {
         printf("%c", p->data);
         p = p->next;
@@ -48,20 +48,20 @@ void reverse(nodelink * head,datatype data)
 }
 
 void preorder(bintree t)
-{ /*Ç°Ğò±éÀú¶ş²æÊ÷µÄµİ¹éËã·¨*/
+{ /*å‰åºéå†äºŒå‰æ ‘çš„é€’å½’ç®—æ³•*/
     if (t) 
 	{ 
         printf("%c",t->data);
         nodelink* p = (nodelink*)malloc(sizeof(nodelink));
         p->data = t->data;
-        p->next = head->next;//Í·²å·¨½¨Á¢Ç°Ğò±éÀúµÄÁ´±í£¨ÄæĞòµÄ£©
+        p->next = head->next;//å¤´æ’æ³•å»ºç«‹å‰åºéå†çš„é“¾è¡¨ï¼ˆé€†åºçš„ï¼‰
         head->next = p;
         preorder(t->lchild);
         preorder(t->rchild);
     }
 }
 void fun(bintree t)
-{ /*Ç°Ğò±éÀú¶ş²æÊ÷µÄµİ¹éËã·¨*/
+{ /*å‰åºéå†äºŒå‰æ ‘çš„é€’å½’ç®—æ³•*/
     if (t)
     {
         reverse(head, t->data);
@@ -71,17 +71,17 @@ void fun(bintree t)
 }
 
 
-/*ÎÒ²»ÔÙ¸ø³öº¯ÊıÔ­ĞÍ£¬×Ô¼ºÔÚ´Ë´¦Íê³Éº¯Êı£ºÇó¶ş²æÊ÷ÖĞÃ¿Æ¬Ò¶×Óµ½¸ùµÄ·´ÏòÂ·¾¶¡£²ÉÓÃµİ¹éº¯Êı»ò·Çµİ¹éº¯Êı¶¼ĞĞ*/
+/*æˆ‘ä¸å†ç»™å‡ºå‡½æ•°åŸå‹ï¼Œè‡ªå·±åœ¨æ­¤å¤„å®Œæˆå‡½æ•°ï¼šæ±‚äºŒå‰æ ‘ä¸­æ¯ç‰‡å¶å­åˆ°æ ¹çš„åå‘è·¯å¾„ã€‚é‡‡ç”¨é€’å½’å‡½æ•°æˆ–éé€’å½’å‡½æ•°éƒ½è¡Œ*/
 
 
 void main()
 {bintree root;
 head = (nodelink*)malloc(sizeof(nodelink));
 head->next = NULL;
- /*½¨¶ş²æÊ÷*/   
- printf("ÇëÊäÈë¶ş²æÊ÷µÄ½áµãÖµ£º");  root=createbintree();
- printf("¶ş²æÊ÷µÄÇ°Ğò±éÀú½á¹ûÎª£º");  preorder(root);
+ /*å»ºäºŒå‰æ ‘*/   
+ printf("è¯·è¾“å…¥äºŒå‰æ ‘çš„ç»“ç‚¹å€¼ï¼š");  root=createbintree();
+ printf("äºŒå‰æ ‘çš„å‰åºéå†ç»“æœä¸ºï¼š");  preorder(root);
 
- /*ÔÚ´Ë´¦Íê³É¶Ô¸Ãº¯ÊıµÄµ÷ÓÃ£¬²¢½øĞĞ²âÊÔ*/
+ /*åœ¨æ­¤å¤„å®Œæˆå¯¹è¯¥å‡½æ•°çš„è°ƒç”¨ï¼Œå¹¶è¿›è¡Œæµ‹è¯•*/
  fun(root);
 }
