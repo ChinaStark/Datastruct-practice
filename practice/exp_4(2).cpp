@@ -60,7 +60,7 @@ void main()
     /*在此处完成对kmp函数的调用，并进行测试*/
     int j = kmp(t, p,next);
     if (j>=0) {
-        printf("找到了在第 %d 个位置",j);
+        printf("找到了在第 %d 个位置",j+1);
     }
     else {
         printf("没找到");
