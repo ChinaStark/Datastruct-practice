@@ -63,6 +63,6 @@ void main()
         printf("找到了在第 %d 个位置",j+1);
     }
     else {
-        printf("没找到");
+        printf("\n抱歉！没找到");
     }
 }
