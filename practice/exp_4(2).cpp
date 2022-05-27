@@ -22,7 +22,7 @@ void getnext(seqstring p, int next[])
         else
             j = next[j];
     }
-    printf("nextÊı×éÖµÎª£º");
+    printf("nextæ•°ç»„å€¼ä¸ºï¼š");
     for (i = 0; i < p.length; i++)
         printf("%d  ", next[i]);
 }
@@ -51,18 +51,18 @@ void main()
     int next[50];
     int pos;
 
-    printf("ÇëÊäÈëÕıÎÄ×Ö·û´®£º");  scanf("%s", t.str);
+    printf("è¯·è¾“å…¥æ­£æ–‡å­—ç¬¦ä¸²ï¼š");  scanf("%s", t.str);
     t.length = strlen(t.str);
-    printf("ÇëÊäÈëÄ£Ê½×Ö·û´®£º");  scanf("%s", p.str);
+    printf("è¯·è¾“å…¥æ¨¡å¼å­—ç¬¦ä¸²ï¼š");  scanf("%s", p.str);
     p.length = strlen(p.str);
 
     getnext(p, next);
-    /*ÔÚ´Ë´¦Íê³É¶Ôkmpº¯ÊıµÄµ÷ÓÃ£¬²¢½øĞĞ²âÊÔ*/
+    /*åœ¨æ­¤å¤„å®Œæˆå¯¹kmpå‡½æ•°çš„è°ƒç”¨ï¼Œå¹¶è¿›è¡Œæµ‹è¯•*/
     int j = kmp(t, p,next);
-    if (j) {
-        printf("ÕÒµ½ÁËÔÚµÚ %d ¸öÎ»ÖÃ",j);
+    if (j>=0) {
+        printf("æ‰¾åˆ°äº†åœ¨ç¬¬ %d ä¸ªä½ç½®",j);
     }
     else {
-        printf("Ã»ÕÒµ½");
+        printf("æ²¡æ‰¾åˆ°");
     }
 }
