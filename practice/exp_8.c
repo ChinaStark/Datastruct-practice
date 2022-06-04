@@ -153,6 +153,6 @@ void main() {
 	table *t =  malloc(sizeof(table));
 	t->len = 0;
 	input(t);
-	printf("即将进入菜单...");
+	//printf("即将进入菜单");
 	meau(t);
 }
