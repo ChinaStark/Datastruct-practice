@@ -56,16 +56,17 @@ void quikly_sort(table* t, int left, int right) {
 		t->list[t->len] = t->list[i];
 		while (i!=j)
 		{
-			while (i < j && t->list[t->len]>t->list[j])j--;
+			while (i < j && t->list[t->len]<t->list[j])j--;
 			if (i < j) {
 				t->list[i] = t->list[j];
 				i++;
 			}
-			while (i < j && t->list[t->len] < t->list[i])i++;
+			while (i < j && t->list[t->len] > t->list[i])i++;
 			if (i < j) {
 				t->list[j] = t->list[i];
 			}
 		}
+		t->list[j] = t->list[t->len];
 		quikly_sort(t, left, i - 1);
 		quikly_sort(t, i + 1, right);
 		
@@ -95,7 +96,7 @@ void insert(table* t) {
 void del(table* t) {
 	
 	int n;
-	printf("which one you want delete ?(ÄãÏëÉ¾³ıµÚ¼¸¸ö)");
+	printf("which one you want delete ?(ä½ æƒ³åˆ é™¤ç¬¬å‡ ä¸ª)");
 	scanf("%d", &n);
 	for (int i = n - 1; i < t->len; i++) {
 		t->list[i] = t->list[i + 1];
@@ -112,13 +113,13 @@ void meau(table* t)
 		int p = 1; 
 		system("pause");
 		system("cls");
-		printf("1¡¢input the table's data(MAXSIZE is 100)\n");
-		printf("2¡¢print the table's data\n");
-		printf("3¡¢insert data into table\n");
-		printf("4¡¢delete data into table\n");
-		printf("5¡¢Sort by binary_sort\n");
-		printf("6¡¢Sort by direct_sort\n");
-		printf("7¡¢Sort by quikly_sort\n");
+		printf("1ã€input the table's data(MAXSIZE is 100)\n");
+		printf("2ã€print the table's data\n");
+		printf("3ã€insert data into table\n");
+		printf("4ã€delete data into table\n");
+		printf("5ã€Sort by binary_sort\n");
+		printf("6ã€Sort by direct_sort\n");
+		printf("7ã€Sort by quikly_sort\n");
 		printf("now's"); print(t);
 		printf("\nplease input you mimnd's choice(input '0' will quit entire program)");
 		scanf("%d", &n);
@@ -152,6 +153,6 @@ void main() {
 	table *t =  malloc(sizeof(table));
 	t->len = 0;
 	input(t);
-	printf("¼´½«½øÈë²Ëµ¥...");
+	printf("å³å°†è¿›å…¥èœå•...");
 	meau(t);
 }
