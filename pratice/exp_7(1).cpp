@@ -80,13 +80,13 @@ void main()
 
     /*在此处完成对linkSearch1函数和linkSearch2函数的调用，并进行测试。如果是自己写的函数，同样完成函数的调用和测试*/
     p = linkSearch1(head, key);
-    printf("\n非递归的结果为:");
+    printf("\n非递归(顺序检索)的结果为:");
     if (p) printf("找到了   该结点的地址：%p",&p->data);
     else printf("没找到");
     
 
     p = linkSearch1(head, key);
-    printf("\n\n递归的结果为:");
+    printf("\n\n递归（顺序检索）的结果为:");
     if (p) printf("找到了   该结点的地址：%p",&p->data);
     else printf("没找到");
     
