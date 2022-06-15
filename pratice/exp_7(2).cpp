@@ -55,13 +55,13 @@ void main()
     /*在此处完成对binsearch1函数和binsearch2函数的调用，并进行测试*/
 
     k = binsearch1(l, key);
-    printf("\n非递归的结果为:");
+    printf("\n非递归（二分查找）的结果为:");
     if (k != -1) prprintf("找到了 在第%d个地址为：%p\n", k + 1, &l.data);
     else printf("没找到\n");
     
 
     k = binsearch2(l, key,0,l.len - 1);
-    printf("\n递归的结果为:");
+    printf("\n递归（二分查找）的结果为:");
     if (k != -1) printf("找到了 在第%d个地址为：%p\n", k + 1, &l.data);
     else printf("没找到\n");
 }
