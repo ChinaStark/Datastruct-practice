@@ -9,14 +9,14 @@ typedef struct node
 }linknode, * linklist;
 
 
-/*Î²²å·¨½¨Á¢´øÍ·½áµãµ¥Á´±í*/
+/*å°¾æ’æ³•å»ºç«‹å¸¦å¤´ç»“ç‚¹å•é“¾è¡¨*/
 linklist creat()
 {
     linklist head, r, s;
     datatype x;
     head = r = (linklist)malloc(sizeof(linknode));
     head->next = NULL;
-    printf("ÇëÊäÈëÒ»×éÕûÐÍÊý¾Ý£¬ÒÔ¿Õ¸ñ·Ö¸ô£¬ÒÔ0½áÊøÊäÈë:\n");  scanf("%d", &x);
+    printf("è¯·è¾“å…¥ä¸€ç»„æ•´åž‹æ•°æ®ï¼Œä»¥ç©ºæ ¼åˆ†éš”ï¼Œä»¥0ç»“æŸè¾“å…¥:\n");  scanf("%d", &x);
     while (x != 0)
     {
         s = (linklist)malloc(sizeof(linknode));
@@ -30,12 +30,12 @@ linklist creat()
 }
 
 
-/*Êä³ö´øÍ·½áµãµ¥Á´±í*/
+/*è¾“å‡ºå¸¦å¤´ç»“ç‚¹å•é“¾è¡¨*/
 void print(linklist head)
 {
     linklist p;
     p = head->next;
-    printf("´øÍ·½áµãµ¥Á´±íÎª£º");
+    printf("å¸¦å¤´ç»“ç‚¹å•é“¾è¡¨ä¸ºï¼š");
     while (p)
     {
         printf("%5d", p->data);
@@ -44,7 +44,7 @@ void print(linklist head)
 }
 
 
-linklist linkSearch1(linklist head, datatype key)  /*´øÍ·½áµãµ¥Á´±íµÄ·ÇµÝ¹é¼ìË÷£¬½«±¾º¯Êý²¹³äÍêÕû¡£Ò²¿ÉÒÔ²»ÓÃÎÒ¸øµÄº¯ÊýÔ­ÐÍ£¬×Ô¼ºÐ´Ò»¸öº¯Êý*/
+linklist linkSearch1(linklist head, datatype key)  /*å¸¦å¤´ç»“ç‚¹å•é“¾è¡¨çš„éžé€’å½’æ£€ç´¢ï¼Œå°†æœ¬å‡½æ•°è¡¥å……å®Œæ•´ã€‚ä¹Ÿå¯ä»¥ä¸ç”¨æˆ‘ç»™çš„å‡½æ•°åŽŸåž‹ï¼Œè‡ªå·±å†™ä¸€ä¸ªå‡½æ•°*/
 {
     linklist l = head->next;
     while (l)
@@ -58,7 +58,7 @@ linklist linkSearch1(linklist head, datatype key)  /*´øÍ·½áµãµ¥Á´±íµÄ·ÇµÝ¹é¼ìË÷£
 }
 
 
-linklist linkSearch2(linklist head, datatype key)  /*´øÍ·½áµãµ¥Á´±íµÄµÝ¹é¼ìË÷£¬½«±¾º¯Êý²¹³äÍêÕû¡£Ò²¿ÉÒÔ²»ÓÃÎÒ¸øµÄº¯ÊýÔ­ÐÍ£¬×Ô¼ºÐ´Ò»¸öº¯Êý*/
+linklist linkSearch2(linklist head, datatype key)  /*å¸¦å¤´ç»“ç‚¹å•é“¾è¡¨çš„é€’å½’æ£€ç´¢ï¼Œå°†æœ¬å‡½æ•°è¡¥å……å®Œæ•´ã€‚ä¹Ÿå¯ä»¥ä¸ç”¨æˆ‘ç»™çš„å‡½æ•°åŽŸåž‹ï¼Œè‡ªå·±å†™ä¸€ä¸ªå‡½æ•°*/
 {
     if (head->next->data == key || head->next == NULL)
         return head->next;
@@ -73,21 +73,21 @@ void main()
     linklist head, p;
     int key;
 
-    head = creat();   /*Î²²å·¨½¨Á¢´øÍ·½áµãµ¥Á´±í*/
-    print(head);    /*Êä³ö´øÍ·½áµãµ¥Á´±í*/
+    head = creat();   /*å°¾æ’æ³•å»ºç«‹å¸¦å¤´ç»“ç‚¹å•é“¾è¡¨*/
+    print(head);    /*è¾“å‡ºå¸¦å¤´ç»“ç‚¹å•é“¾è¡¨*/
 
-    printf("\nÇëÊäÈëÒª²éÕÒµÄ¹Ø¼ü×Ö£º");  scanf("%d", &key);
+    printf("\nè¯·è¾“å…¥è¦æŸ¥æ‰¾çš„å…³é”®å­—ï¼š");  scanf("%d", &key);
 
-    /*ÔÚ´Ë´¦Íê³É¶ÔlinkSearch1º¯ÊýºÍlinkSearch2º¯ÊýµÄµ÷ÓÃ£¬²¢½øÐÐ²âÊÔ¡£Èç¹ûÊÇ×Ô¼ºÐ´µÄº¯Êý£¬Í¬ÑùÍê³Éº¯ÊýµÄµ÷ÓÃºÍ²âÊÔ*/
+    /*åœ¨æ­¤å¤„å®Œæˆå¯¹linkSearch1å‡½æ•°å’ŒlinkSearch2å‡½æ•°çš„è°ƒç”¨ï¼Œå¹¶è¿›è¡Œæµ‹è¯•ã€‚å¦‚æžœæ˜¯è‡ªå·±å†™çš„å‡½æ•°ï¼ŒåŒæ ·å®Œæˆå‡½æ•°çš„è°ƒç”¨å’Œæµ‹è¯•*/
     p = linkSearch1(head, key);
-    printf("\n·ÇµÝ¹éµÄ½á¹ûÎª:");
-    if (p) printf("ÕÒµ½ÁË   %d",p->data);
-    else printf("Ã»ÕÒµ½");
+    printf("\néžé€’å½’çš„ç»“æžœä¸º:");
+    if (p) printf("æ‰¾åˆ°äº†   è¯¥ç»“ç‚¹çš„åœ°å€ï¼š%p",&p->data);
+    else printf("æ²¡æ‰¾åˆ°");
     
 
     p = linkSearch1(head, key);
-    printf("\n\nµÝ¹éµÄ½á¹ûÎª:");
-    if (p) printf("ÕÒµ½ÁË   %d", p->data);
-    else printf("Ã»ÕÒµ½");
+    printf("\n\né€’å½’çš„ç»“æžœä¸º:");
+    if (p) printf("æ‰¾åˆ°äº†   è¯¥ç»“ç‚¹çš„åœ°å€ï¼š%p",&p->data);
+    else printf("æ²¡æ‰¾åˆ°");
     
 }
